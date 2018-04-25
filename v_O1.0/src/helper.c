@@ -402,13 +402,13 @@ Seg find_extended_runway(Seg path, double rnwy_x, double rnwy_y, double rnwy_hea
 	}
 	double q2[]={rnwy_x,rnwy_y,rnwy_heading};	
 	double q1[]={init_x,init_y,init_heading};
-	if(end_altitude>0.000137) //50 feet
+	if(end_altitude>0.000137) //50 feet TODO
 	{
 		double current_x=rnwy_x;
 		double current_y=rnwy_y;
 		double heading=rnwy_heading;
 		double heading_opp= heading+PI;
-		while(end_altitude>0.000137) //more than 50 feet
+		while(end_altitude>0.000137) //more than 50 feet TODO
 		{
 
 	//finding new point at d feet away (using d=50 to find discrete points 50 feet apart)
@@ -434,7 +434,7 @@ Seg find_extended_runway(Seg path, double rnwy_x, double rnwy_y, double rnwy_hea
 				end_altitude= path_with_spiral.C2[path_with_spiral.lenc2-1][4];				
 			}
 
-			if((end_altitude-loss)<0.000137)
+			if((end_altitude-loss)<0.000137)  // TODO
 			{
 				path_with_spiral.extended=true;
 				return path_with_spiral;
