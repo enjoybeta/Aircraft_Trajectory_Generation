@@ -1,20 +1,32 @@
 # Aircraft_Trajectory_Generation 
 
-##### This is the companion code for [Flight Trajectory Planning for Fixed-Wing Aircraft in Loss of Thrust Emergencies.](http://wcl.cs.rpi.edu/papers/trajectory_tech_report_oct_17.pdf "Research Paper")
+The instructions for using the trajectory generation software are given below:
 
-##### Versions:
-* v_T.xx - generates trajectories with 20, 30 and 45 degree bank angles with safety metrics.
-* v_O.xx - generates trajectories with only one specified bank angle (no safety metrics).
+* Create a configuration file with the name `config.txt` in the following format: 
+		`initial_longitude,initial_latitude,initial_heading,final_longitude,final_latitude,final_heading,initial_altitude,baseline_glide_ratio,dirty_configuration_glide_ratio,best_gliding_speed,bank_angle`
 
-##### Sample Images:
 
-<p align="middle">
-  <img src="https://github.com/paulsaswata/Trajectory_Generation_No_Wind/blob/master/v_T1.0/src/Sample/parts2d.png" width="45%" />
-  <img src="https://github.com/paulsaswata/Trajectory_Generation_No_Wind/blob/master/v_T1.0/src/Sample/parts3d.png" width="45%" /> 
-</p>
+* For generating trajectories, create a `config.txt` file in the above format, put `generate` and `visualize.py` (for viewing the trajectories in 2D and 3D) in the same folder along with the `config.txt` file and type:
+
+
+	`$./generate` (To generate trajectories with provided bank angle only)
+
+
+	`$python visualize.py` (To visualize the generated trajectory)
+
+
+* The zip file contains a file named `1549_data` that contains the parameters for the runways and the parameters for the various time instances that can be used to recreate the experiments in section VII-B of the paper.
+
+
+* The `src` folder contains the C source files.
+
+##### Known bugs:
+* Static memory allocation is prone to `segmentation fault`
+##### Note: 
+{dubins.c, dubins.h} - Copyright &copy; 2008-2014, [Andrew Walker](https://github.com/AndrewWalker "Github Link")
 
 ##### DISCLAIMER: 
-Copyright &copy; 2017 Saswata Paul
+Copyright &copy; 2018 Saswata Paul
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,4 +45,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 #### <p align="middle">***** THIS IS AN OPEN SOURCE PROJECT! *****</p>
